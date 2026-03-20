@@ -1,0 +1,484 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+
+TemplateMo 600 Prism Flux
+
+https://templatemo.com/tm-600-prism-flux
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--primary-black: #0a0a0a;
+	--carbon-dark: #121212;
+	--carbon-medium: #1a1a1a;
+	--carbon-light: #2a2a2a;
+	--metal-dark: #3a3a3a;
+	--metal-light: #4a4a4a;
+	--accent-red: #ff3333;
+	--accent-blue: #00a8ff;
+	--accent-green: #00ff88;
+	--accent-purple: #9945ff;
+	--accent-cyan: #00ffff;
+	--text-primary: #ffffff;
+	--text-secondary: #b0b0b0;
+	--text-dim: #808080;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Orbitron', 'Rajdhani', sans-serif;
+	background: var(--primary-black);
+	color: var(--text-primary);
+	overflow-x: hidden;
+	position: relative;
+}
+
+/* Carbon Fiber Background Pattern */
+body::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:
+		repeating-linear-gradient(0deg,
+			transparent,
+			transparent 2px,
+			rgba(255, 255, 255, 0.03) 2px,
+			rgba(255, 255, 255, 0.03) 4px),
+		repeating-linear-gradient(90deg,
+			transparent,
+			transparent 2px,
+			rgba(255, 255, 255, 0.03) 2px,
+			rgba(255, 255, 255, 0.03) 4px),
+		linear-gradient(135deg,
+			var(--primary-black) 0%,
+			var(--carbon-dark) 25%,
+			var(--carbon-medium) 50%,
+			var(--carbon-dark) 75%,
+			var(--primary-black) 100%);
+	z-index: -2;
+}
+
+/* Animated Grid Overlay */
+body::after {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image:
+		linear-gradient(rgba(255, 51, 51, 0.05) 2px, transparent 2px),
+		linear-gradient(90deg, rgba(255, 51, 51, 0.05) 2px, transparent 2px);
+	background-size: 150px 150px;
+	animation: gridMove 20s linear infinite;
+	z-index: -1;
+	opacity: 0.5;
+}
+
+@keyframes gridMove {
+	0% {
+		transform: translate(0, 0);
+	}
+
+	100% {
+		transform: translate(150px, 150px);
+	}
+}
+
+/* Loading Screen */
+.loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: var(--primary-black);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+	transition: opacity 0.5s, visibility 0.5s;
+}
+
+.loader.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.loader-content {
+	text-align: center;
+}
+
+.loader-prism {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	margin: 0 auto 30px;
+}
+
+.prism-face {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 2px solid transparent;
+	transform-origin: center;
+	animation: prismRotate 3s linear infinite;
+}
+
+.prism-face:nth-child(1) {
+	border-image: linear-gradient(45deg, var(--accent-red), var(--accent-blue)) 1;
+	animation-delay: 0s;
+}
+
+.prism-face:nth-child(2) {
+	border-image: linear-gradient(45deg, var(--accent-blue), var(--accent-green)) 1;
+	transform: rotate(60deg);
+	animation-delay: 0.2s;
+}
+
+.prism-face:nth-child(3) {
+	border-image: linear-gradient(45deg, var(--accent-green), var(--accent-purple)) 1;
+	transform: rotate(120deg);
+	animation-delay: 0.4s;
+}
+
+@keyframes prismRotate {
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
+
+	50% {
+		transform: rotate(180deg) scale(1.2);
+	}
+
+	100% {
+		transform: rotate(360deg) scale(1);
+	}
+}
+
+
+/*pengaturan kolom atas */
+.bike-card{
+position:relative;
+}
+
+.bike-card .setting-icon{
+position:absolute;
+top:10px;
+right:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+
+/*km */
+
+
+.service-tracker{
+padding:80px 10%;
+}
+
+.bike-card{
+text-align:center;
+background:#111;
+padding:30px;
+border-radius:10px;
+margin-bottom:40px;
+}
+
+.bike-card img{
+width:90px;
+height:90px;
+border-radius:50%;
+margin-bottom:15px;
+}
+
+.bike-card h2{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.km-now{
+font-size:24px;
+margin:10px 0;
+color:#8a5cff;
+}
+
+.input-km input{
+padding:8px;
+width:140px;
+background: #ffffff;
+}
+
+.input-km button{
+padding:8px 15px;
+background:#8a5cff;
+color:rgb(255, 255, 255);
+border:none;
+cursor:pointer;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+
+
+.service-box h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.service-box h1{
+	font-size: 15px;
+
+}
+
+.service-box p{
+font-size:20px;
+color:#8a5cff;
+}
+
+@media(max-width:768px){
+
+.service-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.service-box h3{
+font-size:15px;
+margin-bottom:10px;
+}
+
+.service-box p{
+font-size:19px;
+color:#8a5cff;
+}
+
+}
+
+
+/* pengaturan kolom */
+
+.service-box{
+position:relative;
+}
+
+.setting-icon{
+position:absolute;
+bottom:10px;
+right:10px;
+cursor:pointer;
+font-size:18px;
+}
+
+.bike-card .menu-popup{
+  top:40px;   /* dari atas */
+  right:10px;
+  bottom:auto; /* matikan bottom */
+}
+
+.menu-popup{
+  z-index:9999;
+}
+
+
+
+
+/*tombol selesai */
+
+.service-box{
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+background:#111;
+padding:20px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+min-height:160px;
+}
+
+.setting-icon{
+position:absolute;
+bottom:10px;
+right:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+
+
+/* tombol tambahkan */
+
+/* tombol tambah */
+.add-btn{
+margin:40px auto 100px; /* jarak bawah biar ga ketutup navbar */
+display:block;
+width:200px;
+text-align:center;
+background:#8a5cff;
+color:white;
+padding:12px;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* modal background */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+/* isi modal */
+.modal-content{
+background:#111;
+padding:25px;
+border-radius:10px;
+width:300px;
+text-align:center;
+position:relative;
+}
+
+/* input */
+.modal-content input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+/* tombol selesai kanan bawah */
+.save-btn{
+position:absolute;
+bottom:10px;
+right:10px;
+padding:8px 15px;
+background:#8a5cff;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.service-box button{
+position:absolute;
+bottom:10px;
+left:10px;
+padding:6px 10px;
+border:none;
+border-radius:6px;
+background:#444;
+color:white;
+cursor:pointer;
+}
+
+.service-box{
+padding-bottom:45px;
+}
+
+/*menu pengaturan bok*/
+.menu-popup{
+display:none;
+position:absolute;
+bottom:40px;
+right:10px;
+background:#222;
+border-radius:8px;
+padding:5px;
+width:80px;
+z-index:10;
+}
+
+.menu-popup p{
+padding:8px;
+font-size:12px;
+cursor:pointer;
+color:white;
+}
+
+.menu-popup p:hover{
+background:#333;
+}
+
+#deleteModal button{
+  padding:8px 15px;
+  margin:5px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+#deleteModal button:first-child{
+  background:#444;
+  color:white;
+}
+
+/*foter navbar */
+
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#111;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  border-top:1px solid #333;
+  z-index:999;
+}
+
+.nav-item{
+  text-align:center;
+  color:#888;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.nav-item span{
+  display:block;
+  font-size:20px;
+}
+
+.nav-item.active{
+  color:#8a5cff;
+}
+
+
+/*notif*/
+
+.badge{
+  display: none;
+  position:absolute;
+  top:-5px;
+  right:-10px;
+  background:red;
+  color:white;
+  font-size:10px;
+  padding:2px 6px;
+  border-radius:50%;
+}

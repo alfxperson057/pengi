@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prisma honda</title>
+    <link rel="stylesheet" href="style.css">
+<!-- 
+
+TemplateMo 600 Prism Flux
+
+https://templatemo.com/tm-600-prism-flux
+
+-->
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-prism">
+                <div class="prism-face"></div>
+                <div class="prism-face"></div>
+                <div class="prism-face"></div>
+            </div>
+            <div style="color: var(--accent-purple); font-size: 18px; text-transform: uppercase; letter-spacing: 3px;">Refracting Reality...</div>
+        </div>
+    </div>
+
+
+
+
+<!-- BERANDAA -->
+<div id="berandaPage">
+  
+  <!-- isi beranda kamu (service tracker) -->
+   <section class="service-tracker">
+       
+
+                <div class="bike-card">
+
+    <!-- tombol pengaturan -->
+    <span class="setting-icon" onclick="toggleBikeMenu(this)">⚙️</span>
+    <div class="menu-popup">
+        <p onclick="event.stopPropagation(); resetAll()">RESET</p>
+        <p onclick="event.stopPropagation(); openEditBike()">EDIT</p>
+    </div>
+
+    <img id="bikeImg" src="images/honda.png">
+    <h2 id="bikeName">Nama honda</h2>
+    <p>KM Sekarang</p>
+
+    <div class="km-now" id="kmNow">0 KM</div>
+
+    <div class="input-km">
+        <input type="number" id="inputKM" placeholder="Tambah KM">
+        <button onclick="updateKM()">Kirim</button>
+    </div>
+
+</div>
+
+<div class="modal" id="editBikeModal">
+  <div class="modal-content">
+
+    <h3>Edit profil</h3>
+
+    <input type="file" id="bikeFile">
+    <input type="text" id="editBikeName" placeholder="Nama motor">
+
+    <button class="save-btn" onclick="saveBike()">Simpan</button>
+
+  </div>
+</div>
+        
+
+
+
+    <div class="service-grid">
+
+        
+    </div>
+
+    
+
+</section>
+<!-- Tombol Tambahkan -->
+<div class="add-btn" onclick="openModal()">+ Tambahkan</div>
+
+<!-- POPUP -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    
+    <h3>Tambah Service</h3>
+
+    <input type="text" id="newName" placeholder="NAMA">
+    <input type="number" id="newLimit" placeholder="BATAS KM">
+
+    <button class="save-btn" onclick="addService()">Selesai</button>
+
+  </div>
+</div>
+
+<div class="modal" id="deleteModal">
+  <div class="modal-content">
+
+    <h3 id="deleteTitle">Hapus?</h3>
+
+    <div style="margin-top:20px;">
+      <button onclick="closeDelete()">Tidak</button>
+      <button onclick="confirmDelete()" style="background:red; color:white;">Oke</button>
+    </div>
+
+  </div>
+</div> 
+
+<div class="modal" id="editServiceModal">
+  <div class="modal-content">
+
+    <h3>Edit Service</h3>
+
+    <input type="text" id="editServiceName" placeholder="Nama service">
+    <input type="number" id="editServiceLimit" placeholder="Batas KM">
+
+    <button class="save-btn" onclick="saveServiceEdit()">Selesai</button>
+
+  </div>
+</div>
+</div>
+
+
+<!--nitif halaman -->
+<div id="notifPage" style="display:none; padding:80px 20px;">
+  <h2>Notifikasi</h2>
+  <div id="notifList"></div>
+</div>
+
+
+
+<!--notif-->
+
+<div id="notif" style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff3333;
+color:white;
+padding:15px 20px;
+border-radius:10px;
+display:none;
+z-index:9999;
+">
+⚠️ Waktunya service!
+</div>
+
+<div class="bottom-nav">
+  
+  <div class="nav-item active" onclick="showPage('beranda')">
+    <span>🏠</span>
+    <p>Beranda</p>
+  </div>
+
+ <div class="nav-item" onclick="showPage('notif')">
+  <span style="position:relative;">
+    🔔
+    <span id="notifBadge" class="badge"></span>
+  </span>
+  <p>Notifikasi</p>
+</div>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
